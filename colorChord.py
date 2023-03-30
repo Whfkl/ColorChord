@@ -31,6 +31,12 @@ class cNote(Enum):
             name = "Ab"
         elif name == "D#":
             name = "Eb"
+        elif name == "E#":
+            name = "F"
+        elif name == "B#":
+            name = "C"
+        elif name == "Gb":
+            name == "Fsharp"
         a = cNote[name]
         return a
 
