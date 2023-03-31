@@ -36,7 +36,7 @@ class cNote(Enum):
         elif name == "B#":
             name = "C"
         elif name == "Gb":
-            name == "Fsharp"
+            name = "Fsharp"
         a = cNote[name]
         return a
 
@@ -50,6 +50,12 @@ class _Note:
         if not 1 <= self.note.value <= 12:
             raise ValueError("note index must be between 1 and 12")
         self.index = self.note.value
+    '''
+    "A" -> _Note(cNote.A)
+    '''
+    @staticmethod
+    def init_by_note_name(name:str):
+        return _Note(cNote.get_cNote_by_name(name))
 
     def __repr__(self):
         return "_Note--'{}'".format(self.name)
@@ -83,7 +89,7 @@ class _Note:
         return self.index<other.index
     def __eq__(self, other):
         return self.index == other.index
-    #返回逆时针方向第n个音符Note
+    #返回逆时针方向第n个音符_Note
     def next(self, n=1):
         new_ind = self.index + n
         if n>=0:
@@ -108,13 +114,34 @@ class Chord:
             raise "没有输入音符"
         self.name = name
         self.temp_theta = None
-        self.notes = []#self.notes 存储音符Note类实例的列表
+        self.notes = []#self.notes 存储音符_Note类实例的列表
         for i in notes:
             self.notes.append(_Note(i))
         self.notes.sort()
 
+    '''
+    直接用音符名str获取和弦对象["C","E","G"]
+    '''
+    def init_by_note_name_str(notes:list, name = None):
+        if len(notes) == 0:
+            raise "没有输入音符"
+        cNote_list = []
+        for i in notes:
+            cNote_list.append(cNote.get_cNote_by_name(i))
+        return Chord(cNote_list,name)
     def __repr__(self):
         return f"Chord {self.name} ({', '.join([note.name for note in self.notes])})"
+    """
+    [_Note]->Chord
+    从_Note类的列表初始化Chord
+    """
+    def initBy_Note(notes:list,name = None):
+        if len(notes) == 0:
+            raise "没有输入音符"
+        cNote_list=[]
+        for i in notes:
+            cNote_list.append(cNote.get_cNote_by_name(i.name))
+        return Chord(cNote_list,name)
 
     def get_theta(self)->list:
         # 计算和弦内音符对应向量的平均方向
@@ -350,7 +377,13 @@ class Chord:
     @staticmethod
     def get_fressness新鲜度(chord1,chord2):
         return Chord.get_tension_change紧张度变化(chord1,chord2)+Chord.get_color_change色彩变化(chord1,chord2)
-
-
+    '''
+    返回一个新的Chord实例，把self的所有音符在五度圈上逆时针旋转n*30°
+    '''
+    def rotate(self,n:int,new_name:str = None):
+        new_notes=[]
+        for i in self.notes:
+            new_notes.append(i.next(n))
+        return Chord.initBy_Note(new_notes,new_name)
 
 
