@@ -303,7 +303,7 @@ class Chord:
                     harmony = 5
                 elif Major2<=2 and (Major or Minor):
                     harmony = 4.67
-                elif Major2 >2 and not(Major or Minor):
+                elif Major2 >2 or not(Major or Minor):
                     harmony =4.33
             elif(Minor2 == 2):
                 if Major2<=2 and (Major or Minor):
