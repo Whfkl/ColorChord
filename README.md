@@ -26,7 +26,7 @@
         "B": 0,
         "Fsharp": 0
     },}
-    ~~~
+~~~
     function: 和弦功能组
     tensionlevel：紧张度级别
     rootnote:和弦根音
