@@ -1,4 +1,7 @@
-# color_full_chords.json
+#简介
+color_full_chords.json是一个包含了几乎所有和弦的JSON文件，注意和弦名 chordname有重复，因为一个和弦可能有多个功能，它们将被分别保存。
+color_full_chords.db 是一个相应的数据库
+## 1. color_full_chords.json
 ~~~json
 {
     "0": {
@@ -35,7 +38,7 @@
     multdirection: 是否有多个方向
     symmetry: 是否在五度圈上对称
     
-# color_full_chords.db 数据库定义：
+## 2. color_full_chords.db 数据库定义：
 ~~~
 CREATE TABLE color_full_chords
 (
