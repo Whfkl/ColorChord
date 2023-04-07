@@ -1,6 +1,7 @@
-#简介
+# 简介
 color_full_chords.json是一个包含了几乎所有和弦的JSON文件，注意和弦名 chordname有重复，因为一个和弦可能有多个功能，它们将被分别保存。
 color_full_chords.db 是一个相应的数据库
+音符字段或属性均为int数据，1表示该和弦含有这个音，0表示和弦不含有这个音
 ## 1. color_full_chords.json
 ~~~json
 {
