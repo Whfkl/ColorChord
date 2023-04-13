@@ -40,8 +40,12 @@ color_full_chords.db 是一个相应的数据库
     angles: 角度的列表（角度可能有多个），使用角度制
     multdirection: 是否有多个方向
     symmetry: 是否在五度圈上对称
-    
-## 2. color_full_chords.db 数据库定义：
+
+
+## 2. color_full_chords2.json
+相比color_full_chords.json,这个文件中存储了一些事实上不存在的功能组，比如7D，8D，9D，10D，7s, 8s,9s,10s，这样的设计是为了获得其他调中心下的和弦功能。
+
+## 3. color_full_chords.db 数据库定义：
 ~~~
 CREATE TABLE color_full_chords
 (
