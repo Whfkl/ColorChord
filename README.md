@@ -33,7 +33,7 @@ color_full_chords.db 是一个相应的数据库
         "Fsharp": 0
     },}
 ~~~
-    function: 和弦功能组
+    function: 和弦功能组，这里的功能组是在C中心调下的。
     tensionlevel：紧张度级别
     rootnote:和弦根音
     harmony：协和度
@@ -43,7 +43,7 @@ color_full_chords.db 是一个相应的数据库
 
 
 ## 2. color_full_chords2.json
-相比color_full_chords.json,这个文件中存储了一些事实上不存在的功能组，比如7D，8D，9D，10D，7s, 8s,9s,10s，这样的设计是为了获得其他调中心下的和弦功能。
+相比color_full_chords.json,这个文件中存储了一些事实上不存在的功能组，比如7D，8D，9D，10D，7s, 8s,9s,10s，这样的设计是为了获得其他调中心下的和弦功能。比如7D组，在C中心调中不存在，但这些和弦是F中心调的6D组。也就是说：如果你想获得其他调中心的和弦数据，只需要改动function这一个属性即可。
 
 ## 3. color_full_chords.db 数据库定义：
 ~~~
